@@ -1,5 +1,10 @@
 class BirdsController < ApplicationController
 
+  def create
+    bird = Bird.create(name:params[:name], species:params[:species])
+    render json: bird, status: :created
+  end
+
   # GET /birds
   def index
     birds = Bird.all
@@ -16,4 +21,11 @@ class BirdsController < ApplicationController
     end
   end
 
+
+
 end
+
+# def create
+#   bird = Bird.create(name: ???, species: ???)
+#   render json: bird, status: :created
+# end
